@@ -40,6 +40,7 @@ public class LivroBean {
 	public List<Autor> getAutoresDoLivro(){
 		return this.livro.getAutores();
 	}
+	
 
 	public void gravar() {
 		System.out.println("Gravando livro " + this.livro.getTitulo());
