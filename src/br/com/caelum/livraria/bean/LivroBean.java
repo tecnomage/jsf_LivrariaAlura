@@ -79,5 +79,11 @@ public class LivroBean {
 			throw new ValidatorException(new FacesMessage("O ISBN deve começar com 1"));
 		}
 	}
+	
+	public String formAutor(){
+		System.out.println("chamado formulario do autor");
+		return "autor?faces-redirect=true";
+		
+	}
 
 }
