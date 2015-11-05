@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
 
+	<ui:composition template="_template.xhtml">
+	    <ui:define name="titulo">
+	            Novo Livro
+	    </ui:define>
+	    <ui:define name="conteudo">
 
-<h:head/> 
-
-<h:body>
-	<h1>Novo Livro</h1>
-	<h:form>
-		
+		<h:form>
 		<h:messages id="messages"/>
 		<fieldset>
 			<legend>Dados do Livro</legend>
@@ -43,6 +44,9 @@
 		
 		<fieldset>
 			<legend>Dados do Autor</legend>
+			
+			<ui:define name="texto"/>
+			
 			<h:outputLabel value="Selecione Autor" for="autor"/>
 			<h:selectOneMenu value="#{livroBean.autorId}" id="autor" >
 			<f:selectItems value="#{livroBean.autores}" var="autor"
@@ -66,7 +70,7 @@
 			<f:ajax event="mouseup" render="@form :tabelaLivro"/>
 		</h:commandButton>
 	</h:form>
-	
+		
 	<h:dataTable value="#{livroBean.livros}" id="tabelaLivro" var="livro">
 		<h:column>
 			<f:facet name="header">Titulo</f:facet>
@@ -88,7 +92,8 @@
              </h:outputText>
 		</h:column>
 	</h:dataTable>
+	</ui:define>
+	</ui:composition>
+ </html>	
 	
-</h:body>
 
-</html>
