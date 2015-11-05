@@ -3,7 +3,8 @@
 <html 	xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:ui="http://java.sun.com/jsf/facelets">
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui">
 
 	<ui:composition template="_template.xhtml">
 	    <ui:define name="titulo">
@@ -13,10 +14,9 @@
 
 		<h:form>
 		<h:messages id="messages"/>
-		<fieldset>
-			<legend>Dados do Livro</legend>
-			<h:panelGrid columns="2">
-
+		<p:fieldset legend="Dados do Livro">
+			
+				<h:panelGrid columns="2">
 				<h:outputLabel value="Titulo:" for="titulo" />
 				<h:inputText id="titulo" value="#{livroBean.livro.titulo}" required="true" requiredMessage="Titulo Obrigatório"
 					validatorMessage="Titulo nao pode ser superior a 40">
@@ -40,11 +40,10 @@
 					<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
 				</h:inputText>
 			</h:panelGrid>
-		</fieldset>
+		</p:fieldset>
 		
-		<fieldset>
-			<legend>Dados do Autor</legend>
-			
+		<p:fieldset legend="Dados do Autor">
+						
 			<ui:define name="texto"/>
 			
 			<h:outputLabel value="Selecione Autor" for="autor"/>
@@ -65,7 +64,7 @@
 					<h:outputText value="#{autor.nome}" />
 				</h:column>
 			</h:dataTable>
-		</fieldset>
+		</p:fieldset>
 		<h:commandButton value="Gravar" action="#{livroBean.gravar}" >
 			<f:ajax event="mouseup" render="@form :tabelaLivro"/>
 		</h:commandButton>
