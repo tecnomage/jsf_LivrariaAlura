@@ -82,7 +82,7 @@ public class LivroBean {
 	
 	public String formAutor(){
 		System.out.println("chamado formulario do autor");
-		return "autor?faces-redirect=true";
+			return "autor.xhtml?faces-redirect=true";
 		
 	}
 
